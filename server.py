@@ -31,7 +31,7 @@ def common_fetcher(request, list_id):
 def fetch_boxset_list(list_id):
     cache_key = 'list-{}'.format(list_id)
     rv_body = cache.get(cache_key)
-    if rv is None:
+    if rv_body is None:
         r = requests.get('http://boxset.io/api/v0.1/track_list/?tracklist_id={}&version_type=LT'.format(list_id))
         track_list_url = r.json()['objects'][0]['tracks']
         rv = requests.get('http://boxset.io/{}&{}'.format(track_list_url,'limit=99&namespaces=soundcloud,wonder,twitter&format=json'))
