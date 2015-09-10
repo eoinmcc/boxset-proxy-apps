@@ -6,8 +6,8 @@ cache = MemcachedCache(['127.0.0.1:11211'])
 
 app = Flask(__name__)
 
-WONDER_TRACKLIST_ID = 65
-WHITELABEL_TRACKLIST_ID = 67
+WONDER_TRACKLIST_ID = 49
+WHITELABEL_TRACKLIST_ID = 73
 
 
 @app.route('/whitelabel', methods=['GET'])
