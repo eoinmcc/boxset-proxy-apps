@@ -13,13 +13,12 @@ NUM_WORKERS=3
 MAX_REQUESTS=0
 
 echo "Starting $NAME as `whoami`"
-
 # Activate the virtual environment.
 cd $FLASKDIR
+echo "CWD is `pwd`"
+
 . ../bin/activate
 
-# Set additional environment variables.
-. ../bin/postactivate
 
 # Create the run directory if it doesn't exist.
 RUNDIR=$(dirname $SOCKFILE)
@@ -34,4 +33,4 @@ exec gunicorn \
     --user $USER --group $GROUP \
     --log-level debug \
     --bind unix:$SOCKFILE \
-    www.wsgi:application
+    server:app

@@ -7,14 +7,14 @@ cache = MemcachedCache(['127.0.0.1:11211'])
 app = Flask(__name__)
 
 WONDER_TRACKLIST_ID = 65
-WHITELABEL_TRACKLIST_ID = 68
+WHITELABEL_TRACKLIST_ID = 67
 
 
 @app.route('/whitelabel', methods=['GET'])
 def whitelabel():
     return common_fetcher(request, WHITELABEL_TRACKLIST_ID)
 
-
+@app.route('/wonder', methods=['GET'])
 def wonder():
     return common_fetcher(request, WONDER_TRACKLIST_ID)
 
